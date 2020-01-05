@@ -1,11 +1,11 @@
 import argparse
-import kdtree
 
+from cached_kd_tree import CachedKdTree
 from console_program.menus.main_menu import open_main_menu
 
 
 def run_program(vector_size: int):
-    kd_tree = kdtree.create(dimensions=vector_size)
+    kd_tree = CachedKdTree(dimensions=vector_size)
     open_main_menu(kd_tree)
 
 

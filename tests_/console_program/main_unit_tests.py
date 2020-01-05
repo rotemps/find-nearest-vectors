@@ -11,10 +11,10 @@ class MainUnitTests(TestCase):
         pass
 
     @patch.object(__main__, "open_main_menu")
-    @patch.object(__main__, "kdtree")
+    @patch.object(__main__, "CachedKdTree")
     def test_run_program(self, mock_kdtree, mock_open_main_menu):
         mock_vector_size = 4
         __main__.run_program(mock_vector_size)
 
-        mock_kdtree.create.assert_called_once_with(dimensions=mock_vector_size)
+        mock_kdtree.assert_called_once_with(dimensions=mock_vector_size)
         mock_open_main_menu.assert_called_once_with(ANY)
